@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasha's Portfolio Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* Base Reset */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0b1028;
+color:#e6ecff;
+overflow-x:hidden;
+}
+
+/* Cursor Glow */
+.cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle, rgba(180,200,255,0.25) 0%, transparent 70%);
+border-radius:50%;
+pointer-events:none;
+z-index:0;
+transform:translate(-50%,-50%);
+}
+
+/* Floating Bubbles */
+.bubbles{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+z-index:0;
+overflow:hidden;
+}
+
+.bubbles span{
+position:absolute;
+bottom:-150px;
+background:rgba(255,255,255,0.08);
+border-radius:50%;
+animation:rise linear infinite;
+}
+
+@keyframes rise{
+0%{transform:translateY(0) scale(1);}
+100%{transform:translateY(-120vh) scale(1.4);}
+}
+
+/* Main Section */
+
+.statement{
+min-height:100vh;
+padding:160px 10%;
+max-width:900px;
+margin:auto;
+opacity:0;
+transform:translateY(100px) scale(0.98);
+transition:1.2s cubic-bezier(0.2,0.8,0.2,1);
+position:relative;
+z-index:1;
+}
+
+.statement.active{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+/* Titles */
+
+.statement h1{
+font-family:'Cinzel',serif;
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.statement h2{
+font-family:'Cinzel',serif;
+font-weight:400;
+font-size:1.6rem;
+margin-bottom:50px;
+color:#b8c6ff;
+}
+
+/* Paragraphs */
+
+.statement p{
+margin-bottom:25px;
+line-height:1.8;
+font-size:1.05rem;
+}
+
+/* Images Section */
+
+.statement-images{
+display:flex;
+justify-content:center;
+align-items:flex-start;
+gap:50px;
+margin:60px 0;
+flex-wrap:nowrap; /* prevents stacking */
+}
+
+.statement-images img{
+width:280px; /* smaller and elegant */
+height: 180px;
+aspect-ratio:9 / 16;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 0 30px rgba(173,216,230,0.35);
+transition:0.6s ease;
+}
+
+.statement-images img:hover{
+transform:scale(1.05);
+box-shadow:0 0 60px rgba(173,216,230,0.6);
+}
+
+/* Download Button */
+
+.download-btn{
+margin-top:50px;
+display:inline-block;
+padding:15px 40px;
+border-radius:40px;
+background:linear-gradient(145deg,#1b1f40,#121530);
+color:#e6ecff;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+}
+
+.download-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 30px rgba(173,216,230,0.6);
+}
+
+/* Moon Transition */
+
+.moon-transition{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0b1028;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:2000;
+opacity:1;
+transition:opacity 1.2s ease;
+}
+
+.moon-transition.hide{
+opacity:0;
+pointer-events:none;
+}
+
+.moon{
+width:120px;
+height:120px;
+background:radial-gradient(circle at 30% 30%, #ffffff, #cbd6ff 60%, #8ea0ff);
+border-radius:50%;
+box-shadow:0 0 60px rgba(200,220,255,0.7);
+animation:moonFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes moonFloat{
+from{transform:translateY(-10px);}
+to{transform:translateY(10px);}
+}
+
+ /* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            letter-spacing:3px;
+            cursor:pointer;
+            }
+
+ /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#b8c6ff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+
+</style>
+</head>
+
+<body>
+<header class="project-header">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+</header>
+
+<!-- Moon Intro -->
+<div id="moonTransition" class="moon-transition">
+<div class="moon"></div>
+</div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Bubbles -->
+<div class="bubbles">
+<span style="left:10%; width:20px; height:20px; animation-duration:18s;"></span>
+<span style="left:30%; width:15px; height:15px; animation-duration:22s;"></span>
+<span style="left:50%; width:25px; height:25px; animation-duration:25s;"></span>
+<span style="left:70%; width:18px; height:18px; animation-duration:19s;"></span>
+<span style="left:85%; width:22px; height:22px; animation-duration:23s;"></span>
+</div>
+
+<section class="statement">
+
+<h1>Artist Statement</h1>
+<h2>Tasha's Portfolio</h2>
+
+<p>I wanted to design my own portfolio to explore and learn more about HTML, CSS, and specifically JavaScript. Whenever I engage in creating a new project, I always want to learn new skills or methods to improve and challenge myself.</p>
+
+<p>The idea behind the theme of this website is the moon. To me, I find the moon inspiring and it fits my own personality. I consider myself a calm and reflective person, so the moon was a good concept to start with when designing this portfolio.</p>
+
+<p>I am also a very creative person, so I had the idea of making a different design for each page of my projects. I got this inspiration from a certain website about video games I like. One element that I loved is that I felt like I could “interact” with the medium, instead of just navigating through. It put a lot more importance on the projects I was looking at, making it more fun to navigate. </p>
+
+<div class="statement-images">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/First-Site.png" alt="First Version">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Second-Site.png" alt="Second Version">
+</div>
+
+<p>It isn’t the first design I have made. I decided to improve it to become a bit more interactive and simple. My first design was based on the fact I was a Cinema student, and wanted to go with a sort of “modern” website, while still choosing colors outside of white and black. I prefer this design because it represents, to me, serenity and calm. The colors are a good mix of the two things I am passionate about: art and technology.</p>
+
+<p>In terms of improvement, I wish I could make something even more complex. There are also some part, like in the main page, where scrolling down isn't as smooth. I definitely want to learn more about how to make a smoother interactive website.</p>
+
+<p>For all the pages, I have added the 'style' and 'script' tags into the HTML, instead of separated CSS and JavaScript files. I found it simpler and more manageable for me. Here is the pdf version of my main page’s code:</p>
+
+<a href="your-pdf-file.pdf" class="download-btn" download>Download HTML file for main page (PDF)</a>
+
+</section>
+<footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+    </footer>
+
+<script>
+
+/* Cursor Glow */
+const glow=document.getElementById("cursorGlow");
+document.addEventListener("mousemove",(e)=>{
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+});
+
+/* Moon Intro Fade */
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+    document.getElementById("moonTransition").classList.add("hide");
+    
+    /* trigger content reveal right after moon */
+    setTimeout(()=>{
+        document.querySelector(".statement").classList.add("active");
+    },500);
+
+},800);
+});
+
+// For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Heroine For Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet"> <!-- Added new font -->
+  <style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    padding-top:75px;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, black, #333); /* Black-to-gray gradient */
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: black;
+    z-index: 2;
+    transition: transform 1s ease-out;
+    cursor: pointer; /* Pointer to indicate clickable curtains */
+  }
+
+  .curtain.right {
+    left: auto;
+    right: 0;
+  }
+
+  .curtain.reveal {
+    transform: translateX(-100%);
+  }
+
+  .curtain.right.reveal {
+    transform: translateX(100%);
+  }
+
+  .click-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering the text */
+    font-size: 3rem; /* Larger font size */
+    font-family: 'Pacifico', cursive; /* New font */
+    color: white;
+    animation: float 2s infinite alternate ease-in-out; /* Floating effect */
+    z-index: 3;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-10px); /* Float up */
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0); /* Return to original position */
+    }
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+  }
+
+  .image-container img {
+    max-width: 80%;
+    max-height: 80%;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
+  }
+
+  .content {
+    padding: 50px;
+    margin-top: 40vh; /* Reduced gap between project and content */
+  }
+
+  .project-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px; /* Reduced spacing below title */
+  }
+
+  .artist-statement {
+    font-size: 2rem;
+    margin-top: 10px; /* Reduced top margin */
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  /* Rectangles below the content (Horizontally Aligned) */
+  .rectangles {
+    display: flex;
+    justify-content: space-between; /* Spacing out the items */
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+
+  .rectangle {
+    width: 32%; /* Each rectangle will take up 32% of the width, so they fit in the row */
+    max-width: 300px; /* Max width for each rectangle */
+    margin-bottom: 20px;
+    /* Removed box-shadow */
+    overflow: hidden; /* Prevents images or video from overflowing */
+  }
+
+  .rectangle img, .rectangle video {
+    width: 100%; /* Makes the content fit the rectangle */
+    height: auto;
+  }
+
+  /* Words List Container */
+  .word-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow words to wrap onto the next line */
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+
+  .word-item {
+    width: 30%; /* 3 words per line (3 * 30% = 90%, leaving 10% for spacing) */
+    margin: 5px;
+    text-align: center;
+    font-size: 1.2rem; /* Normal text size */
+    color: white;
+    font-family: Arial, sans-serif; /* Normal font */
+    text-transform: none; /* No uppercase */
+  }
+
+  /* Title for List of Words */
+  .word-list-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px; /* Added margin below the title */
+    font-family: Arial, sans-serif; /* Normal font */
+    color: white;
+    text-transform: none; /* Normal case */
+  }
+
+  /* Added bottom space */
+  .bottom-space {
+    height: 50px; /* Adds space below the word list */
+  }
+
+ @media (max-width: 768px) {
+    .rectangle {
+      flex: 1 1 calc(50% - 10px);
+    }
+
+    .word-item {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .click-text {
+      font-size: 2rem;
+    }
+
+    .rectangle {
+      flex: 1 1 100%;
+    }
+
+    .word-item {
+      width: 100%;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content p {
+      font-size: 1rem;
+    }
+
+    .project-title {
+      font-size: 2rem;
+    }
+
+    .artist-statement {
+      font-size: 1.5rem;
+    }
+  }
+  /* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            letter-spacing:3px;
+            cursor:pointer;
+            }
+
+        /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#b8c6ff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+
+</style>
+</head>
+<body>
+  <header class="project-header">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+  </header>
+  <!-- Click Text -->
+  <div class="click-text">Click on it</div>
+
+  <!-- Curtains -->
+  <div class="curtain left"></div>
+  <div class="curtain right"></div>
+
+  <!-- Project Image Section -->
+  <div class="image-container">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/An_Heroine_For_Me.jpg" alt="Project Image">
+  </div>
+
+  <!-- Additional Content -->
+  <div class="content">
+    <!-- Project Title -->
+    <div class="project-title">An Heroïne For Me</div>
+
+    <!-- Artist Statement -->
+    <div class="artist-statement">Artist Statement</div>
+
+    <!-- Paragraphs -->
+    <p>This is a typography collage of Wonder Woman that I made using Adobe Photoshop. I wanted to make a collage based on the main theme of "Feminist Film Theory" and the reason I chose Wonder Woman is because to me, it’s my first ever strong female character I have seen in movies. She was also my favorite hero at a young age, which is why she became the first option when I was trying to choose what female character to me would represent this project.</p>
+    <p>It’s my first ever typography collage and I actually had a lot of fun doing this portrait. Not only is it one of my favorite projects I have done so far personally, but also it was a collaborative project. Collaborative in the way that every word I put in this collage were words that my friends expressed when I asked them “what feminism film theory represents to you”. Some expressed definitions while others expressed their opinions. With all those words combined, it gave a full art piece as a result.</p>
+    <p>In a way, I was inspired by my Interactive Art class, where instead of it just being an art piece, the viewer gets to interact with it. So this piece is a result of all the perspectives and different points of views that different people had on the subject.</p>
+    <p>I chose the title “An Heroïne For Me” because I felt like it fitted the theme. To me, there’s no better way to describe how a female character should be written than looking at every view of different types of people. And I think that’s also one of the messages of this movement, because in the past women didn’t have the chance to express themselves as much (from directors to acting). But now we get to see so many movies directed by women who are as exceptional as movies directed by men.</p>
+    <p>To me, Cinema is a sort of “virtual” reality where you get to become a part of that new reality. So of course I value the importance of representation, whether it’s gender or cultures. Which is what gave the result to my collage and is also the reason why this project is meaningful to me.</p>
+  </div>
+
+  <!-- Rectangles for Images and Video -->
+  <div class="rectangles">
+    <!-- First Rectangle (Image) -->
+    <div class="rectangle">
+      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Progress-1-Typography.png" alt="Image 1">
+    </div>
+
+    <!-- Second Rectangle (Image) -->
+    <div class="rectangle">
+      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Progress-2-Typography.png" alt="Image 2">
+    </div>
+
+    <!-- Third Rectangle (Video) -->
+    <div class="rectangle">
+      <video autoplay loop muted>
+        <source src="/Users/tkairi/Downloads/Tasha-Portfolio/images/An-Heroine-For-Me-Timelapse.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <!-- Title for List of Words -->
+  <div class="word-list-title">List of Words</div>
+
+  <!-- Words List -->
+  <div class="word-list">
+    <!-- Add your words here in .word-item divs -->
+    <div class="word-item">Power</div>
+    <div class="word-item">Solidarity</div>
+    <div class="word-item">Girl Power</div>
+
+    <div class="word-item">Knowledge</div>
+    <div class="word-item">Smart</div>
+    <div class="word-item">Determination</div>
+
+    <div class="word-item">We are not things, we are humans</div>
+    <div class="word-item">Over sexualized</div>
+    <div class="word-item">Don't get credits most of the time</div>
+
+    <div class="word-item">Racism as a factor</div>
+    <div class="word-item">Hard to get recognition</div>
+    <div class="word-item">Ageism</div>
+
+    <div class="word-item">Beauty inside</div>
+    <div class="word-item">Confident</div>
+    <div class="word-item">Independant</div>
+
+    <div class="word-item">Lust</div>
+    <div class="word-item">Pride</div>
+    <div class="word-item">Prejudice</div>
+
+    <div class="word-item">Respect</div>
+    <div class="word-item">Smile</div>
+    <div class="word-item">Red lips</div>
+
+    <div class="word-item">Skincare</div>
+    <div class="word-item">Empowerment</div>
+    <div class="word-item">Autonomy</div>
+
+    <div class="word-item">The Male Gaze</div>
+    <div class="word-item">Subversion</div>
+    <div class="word-item">Female Agency</div>
+
+    <div class="word-item">Patriarchy</div>
+    <div class="word-item">Objectification</div>
+    <div class="word-item">Stereotypes</div>
+
+    <div class="word-item">Liberation</div>
+    <div class="word-item">Gender Roles</div>
+    <div class="word-item">Resistance</div>
+
+    <div class="word-item">Voice</div>
+    <div class="word-item">Equality</div>
+    <div class="word-item">Rebellion</div>
+
+    <div class="word-item">Intersectionality</div>
+    <div class="word-item">Deconstruction</div>
+    <div class="word-item">Feminine Strength</div>
+
+    <div class="word-item">Visibility</div>
+    <div class="word-item">Representation</div>
+    <div class="word-item">Diversity</div>
+
+    <div class="word-item">Oppression</div>
+    <div class="word-item">Sexualization</div>
+    <div class="word-item">Female Archetypes</div>
+
+    <div class="word-item">Challenging Norms</div>
+    <div class="word-item">Identity</div>
+    <div class="word-item">Breaking Boundaries</div>
+
+    <div class="word-item">Heroines</div>
+    <div class="word-item">Maternal Roles</div>
+    <div class="word-item">Narrative Control</div>
+
+    <div class="word-item">Women Behind the Camera</div>
+    <div class="word-item">Women in Film</div>
+    <div class="word-item">Complex Characters</div>
+
+    <div class="word-item">Redefining Beauty</div>
+    <div class="word-item">Unapologetic</div>
+    <div class="word-item">Perspective Shift</div>
+
+    <div class="word-item">Power Dynamics</div>
+    <div class="word-item">Breaking Stereotypes</div>
+    <div class="word-item">Feminist Lens</div>
+
+    <div class="word-item">Gender Politics</div>
+    <div class="word-item">Beyond the Screen</div>
+    <div class="word-item">Gendered Expectations</div>
+
+    <div class="word-item">Strength in Vulnerability</div>
+    <div class="word-item">Rewriting Stories</div>
+    <div class="word-item">Female Solidarity</div>
+
+    <div class="word-item">Body Politics</div>
+    <div class="word-item">Non-conformity</div>
+    <div class="word-item">Visual Pleasure</div>
+
+    <div class="word-item">Authenticity</div>
+    <div class="word-item">Women’s Stories</div>
+    <div class="word-item">Evolution of Roles</div>
+
+    <div class="word-item">Media Critique</div>
+    <div class="word-item">Self-Expression</div>
+    <div class="word-item">Visual</div>
+
+    <div class="word-item">Reflexion</div>
+    <div class="word-item">Perspectives</div>
+    <div class="word-item">Cinema</div>
+
+    <div class="word-item">Equality</div>
+    <div class="word-item">Female Gaze</div>
+    <div class="word-item">Dehumanization</div>
+
+    <div class="word-item">Empowerment Narratives</div>
+    <div class="word-item">Ideological</div>
+    <div class="word-item">Object</div>
+
+    <div class="word-item">Voice Representation</div>
+    <div class="word-item">Feminism</div>
+    <div class="word-item">Inspiration</div>
+
+    <div class="word-item">Exploitation</div>
+    <div class="word-item">Importance</div>
+    <div class="word-item">Taken Seriously</div>
+
+    <div class="word-item">Female Talents</div>
+    <div class="word-item">Movie</div>
+    <div class="word-item">Body</div>
+
+    <div class="word-item">She</div>
+    <div class="word-item">Feminist Revolution</div>
+    <div class="word-item">Rights</div>
+
+    <div class="word-item">We</div>
+    <div class="word-item">Women</div>
+    <div class="word-item">Female Producers</div>
+
+    <div class="word-item">Movement</div>
+    <div class="word-item">Her</div>
+    <div class="word-item">Feminist Movement</div>
+
+    <div class="word-item">Female Directors</div>
+  </div>
+
+  <!-- Space Below the List -->
+  <div class="bottom-space"></div>
+  <footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+  </footer>
+
+  <script>
+    // Add click event listener to both curtains
+    const curtains = document.querySelectorAll(".curtain");
+    curtains.forEach(curtain => {
+      curtain.addEventListener("click", () => {
+        curtains.forEach(c => c.classList.add("reveal"));
+        // Hide click text after the animation starts
+        document.querySelector(".click-text").style.display = "none";
+      });
+    });
+    // For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+  </script>
+</body>
+</html>

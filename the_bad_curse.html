@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bad Curse</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top:120px;
+            background: linear-gradient(to right, #d4edda, #ffe0b2);
+            color: #333;
+        }
+        footer {
+            margin-top: 50px; /* Adjust as needed */
+        }
+       .container {
+           max-width: 800px;
+           margin: 40px auto 120px auto; /* Increased bottom margin */
+           padding: 20px;
+           background: #fff;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+           border-radius: 10px;
+        }
+        .title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .artist-statement {
+            margin-top: 30px;
+        }
+        .artist-statement h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+        .artist-statement p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+                margin-bottom: 60px; /* Adjusted for mobile spacing */
+            }
+            .title {
+                font-size: 28px;
+            }
+            .artist-statement h2 {
+                font-size: 22px;
+            }
+        }
+        /* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            letter-spacing:3px;
+            cursor:pointer;
+            color:#ffffff;
+            }
+
+        /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#b8c6ff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+    </style>
+</head>
+<body>
+    <header class="project-header">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    </header>
+    <div class="container">
+        <h1 class="title">The Bad Curse</h1>
+        <div class="video-container">
+         <iframe src="https://player.vimeo.com/video/825671044" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+         </div>
+        <div class="artist-statement">
+            <h2>Artist Statement</h2>
+            <p>
+               “The Bad Curse” is a short college movie I have made for my Video Basic class by partnering up with Israa Guesmi.
+            </p>
+            <p>
+                The movie follows a college girl who keeps getting bad luck on her days. She eventually thinks that she may have a “curse” upon her, in which she then makes a bet with her brother where she will not receive any "bad luck". But by the end of the movie, she realizes that if you change your perspective and look at things more positively, then you will change your outlook at life.
+            </p>
+            <p>
+               The main theme we chose was that mindset can change your perspective in life. If you don’t have the right mindset, then you will never find positivity in your life.
+            </p>
+            <p>
+               This movie was edited by both me and Israa Guesmi and using different cell phone’s cameras and the Canon T3i offered by the college. We used Adobe Premiere Pro to edit this movie. It was the first movie I have made where I had to use Adobe Premiere Pro, a brand new tool.
+            </p>
+            <p>
+               I wished we could have had in the team someone who had more experience with cameras and sound to give a better quality movie. Those both main aspects are the main two problems I have with this project that I would’ve improved upon. Else, the result was way better than I thought it would be and it was the first time I have had to work with so many people in one project.
+            </p>
+            <p>
+             Cast: Kaithlynn Aranas, Ryan Aranas, Alexane Masse, Nghi Cheung, Walter Gus Junior, Stephanie Jurrado Sierra.
+            </p>
+        </div>
+    </div>
+    <footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+    </footer>
+</body>
+<script>
+    // For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+</script>
+</html>

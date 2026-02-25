@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surrealism Photography</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f7f1f2;
+            margin: 0;
+            padding: 0;
+            padding-top:100px;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .title {
+            position: relative;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #6e4a76;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #fff, #f4b1d0); /* Pink gradient for text */
+            border-radius: 10px; /* Round edges for the title box */
+        }
+
+        .title-container {
+            background-color: #000; /* Black background behind the title box */
+            padding: 25px;
+            /* No border-radius here to keep edges pointy */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;
+            padding: 40px 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .image-container {
+            width: 60%;
+            text-align: center;
+            overflow: hidden;
+            transform: scale(1.05);
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .description-container {
+            width: 55%;
+            background: #fff;
+            padding: 30px;
+            margin-top: 40px; /* Increased space between the image and description */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            color: #6a4c6f;
+        }
+
+        .description-container h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #fff;
+            background-color: #FFB6C1;
+            padding: 12px 20px;
+            text-align: center;
+            text-transform: uppercase;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .description-container p {
+            font-size: 1.3rem;
+            color: #4b4b4b;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: scale(1.05); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .image-container, .description-container {
+                width: 80%;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .description-container h3 {
+                font-size: 1.8rem;
+            }
+
+            .description-container p {
+                font-size: 1.1rem;
+            }
+        }
+        /* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            color:#e4e9ff;
+            letter-spacing:3px;
+            cursor:pointer;
+            }
+
+        /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#ffffff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="project-header">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    </header>
+    <div class="title-container">
+        <div class="title">Surrealism Photography</div>
+    </div>
+    <div class="container">
+        <div class="image-container">
+            <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Surrealism_Photography.jpg" alt="Surreal Photography">
+        </div>
+        <div class="description-container">
+            <h3>Artist's Statement</h3>
+            <p>This is the first digital drawing I have made on Adobe Photoshop for our Digital class in 2022. We had to be creative and create an art piece that is surrealism. To me, it’s one of my most precious projects because it represents my first step into getting in digital art. This project inspired me to explore more into the different digital tools to make art.</p>
+            <p>I decided to use a camera with plants growing out of it because it represents my love for both cameras/photography and nature. I wanted to have a mix of both of those passions into one imagery.</p>
+            <p>Obviously I have a lot to improve on since it was my first time drawing digitally. Next time, I would love to have the tools to draw it on a tablet and not on a mouse and key so that the lines look more flawless. I would also want to make a more complex background in a way so that the camera can get “submerged” by the plants to make it seem like it is “embracing” nature.</p>
+            <p>To me, this project represents my first step into the digital art world and every time I will look at it, I will be able to see my progression over the years.</p>
+        </div>
+    </div>
+    <footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+    </footer>
+</body>
+<script>
+    // For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+</script>
+</html>

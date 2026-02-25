@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Theory of Numbers</title>
+  <style>
+    body {
+      margin: 0;
+      padding-top:120px;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      overflow: hidden; /* Prevent scrolling during intro animation */
+    }
+
+    /* Intro screen should cover the full screen */
+    .intro-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh; /* Full height of the viewport */
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Make sure it's on top of everything */
+      opacity: 1;
+      transition: opacity 1s ease-out; /* Smooth fade out */
+    }
+
+    .intro-title {
+      font-size: 100px;
+      font-weight: bold;
+      opacity: 1;
+      animation: fadeOutTitle 4s forwards; /* Title fade out animation */
+    }
+
+    @keyframes fadeOutTitle {
+      0% {
+        font-size: 100px;
+      }
+      100% {
+        font-size: 36px;
+        opacity: 0;
+      }
+    }
+
+    /* Main content should be hidden initially */
+    .container {
+      display: none; /* Hide content initially */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      height: 100%; /* Allow scrolling */
+      overflow: auto; /* Enable scrolling */
+    }
+
+    .header {
+      padding: 20px;
+      border-bottom: 2px solid white;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      margin: 30px 0;
+      border: 2px solid white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 500px;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .description {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .footer {
+      padding: 10px;
+      border-top: 2px solid white;
+      font-size: 14px;
+    }
+
+    /* When the intro animation is complete, show the content */
+    .show-content {
+      display: block;
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+      .intro-title {
+        font-size: 60px;
+      }
+      .container {
+        padding: 10px;
+      }
+      .title {
+        font-size: 28px;
+      }
+      .subtitle {
+        font-size: 20px;
+      }
+      .description {
+        font-size: 16px;
+      }
+      .video-container iframe {
+        height: 300px;
+      }
+      .footer {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .intro-title {
+        font-size: 40px;
+      }
+      .title {
+        font-size: 24px;
+      }
+      .subtitle {
+        font-size: 18px;
+      }
+      .description {
+        font-size: 14px;
+      }
+      .video-container iframe {
+        height: 250px;
+      }
+      .footer {
+        font-size: 10px;
+      }
+    }
+    /* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            letter-spacing:3px;
+            cursor:pointer;
+            }
+
+        /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#b8c6ff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+  </style>
+</head>
+<body>
+  <header class="project-header">
+  <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+  </header>
+  <!-- Intro Screen -->
+  <div class="intro-screen">
+    <div class="intro-title">The Theory of Numbers</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="header">
+      <h1>The Theory of Numbers</h1>
+    </div>
+
+    <div class="title">2023</div>
+
+    <div class="video-container">
+      <iframe src="https://player.vimeo.com/video/897226185" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="subtitle">Artist Statement</div>
+    <p class="description">
+      This is one of my proudest projects I have made since I started college. I have always loved to edit videos since 2020, and this is by far the longest video I have edited at the moment.
+    </p>
+    <p class="description">
+      The Theory of Numbers is a video essay I have worked on with Rim Naguib for our Film Theory class. We wanted to choose a topic that we didn’t hear a lot of people talk about. That’s when we thought of the symbolism of numbers. We came up with this idea when we thought of how we most of the time put meaning in certain numbers, like 7 meaning luck while 6 means bad luck. We thought that maybe it is also the same in films.
+    </p>
+    <p class="description">
+      My partner worked more on the research part of the project whereas I worked more on the presentation and editing part. I wanted to put my skills to the challenge to see how much I have improved after the years.
+    </p>
+    <p class="description">
+      What I could have done better with this project is mainly with the sound editing part. I am quite sensitive to sounds so it was hard for me to work on that part, but I think that if I had focused more on this aspect, it would have given an even better result. This project made me learn so many new ways to edit and I wanted to push my limits as best as I could. Because of that, it has become one my favorite projects to have worked in.
+    </p>
+    <br>
+
+    <!-- Footer Inside Container -->
+    <div class="footer">
+      <p>Credits: Rim Naguib and Tasha Pakita Kanzi</p>
+    </div>
+  </div>
+  <footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+    </footer>
+
+  <script>
+    // Ensure JS runs after the page is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function() {
+        // Hide the intro screen after animation
+        document.querySelector('.intro-screen').style.opacity = '0'; // Fade out the intro screen
+        setTimeout(function() {
+          document.querySelector('.intro-screen').style.display = 'none'; // Completely hide it after fade
+          document.querySelector('.container').classList.add('show-content'); // Show the main content
+          document.body.style.overflow = 'auto'; // Enable scrolling after intro
+        }, 1000); // Wait for 1 second after fade-out before hiding completely
+      }, 4000); // Wait for 4 seconds before starting the fade-out
+    });
+    // For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+  </script>
+</body>
+</html>

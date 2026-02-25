@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mycena Interrupta</title>
+
+<style>
+
+/* GLOBAL */
+
+* {
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    padding-top:120px;
+    background: radial-gradient(circle at top, #0d1b2a, #050a14 70%);
+    color: #e0f7ff;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+h1, h2 {
+    text-align: center;
+    letter-spacing: 4px;
+}
+p {
+    font-size:25px;
+}
+
+/* HERO */
+
+.hero {
+    padding-top: 120px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    background: linear-gradient(90deg, #5ee7ff, #6c63ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #5ee7ff; }
+    to { text-shadow: 0 0 35px #6c63ff; }
+}
+
+/* BIG IMAGE */
+
+.big-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,200,255,0.4);
+}
+
+/* FLEX */
+
+.flex {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.flex .text {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* GRID */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 20px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #5ee7ff;
+}
+
+/* FADE */
+
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PARTICLES */
+
+.particle {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: rgba(94,231,255,0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* LIQUID CURSOR */
+
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(94,231,255,0.9), rgba(94,231,255,0.2));
+    mix-blend-mode: screen;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+    z-index: 9999;
+}
+
+/* RIPPLE */
+
+.ripple {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(94,231,255,0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: rippleEffect 0.8s ease-out;
+}
+
+@keyframes rippleEffect {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* MOBILE FIX */
+
+@media (hover: none) {
+    * { cursor: auto; }
+    .cursor { display: none; }
+}
+
+/* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            letter-spacing:3px;
+            cursor:pointer;
+            color:#ffffff;
+            }
+
+        /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#b8c6ff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+
+</style>
+</head>
+
+<body>
+
+<header class="project-header">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+</header>
+
+<div class="cursor"></div>
+
+<section class="hero fade">
+    <h1>Mycena Interrupta</h1>
+    <h2>Blender Modelling</h2>
+</section>
+
+<section class="fade">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Mycena_Interrupta_With_Credits.png" class="big-image" alt="Project">
+</section>
+
+<section class="fade">
+    <h2>Artist Statement</h2>
+    <p>I used Blender for this project, which was my first time doing 3D modelling. I learned about it years ago, but had a hard time understanding it. I wanted to challenge myself because one of my goals is to become a video game developer, and I also want to be able to create my own assets.</p>
+</section>
+
+<section class="flex fade">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Mushroom_Inspiration.jpg" alt="Inspiration Image">
+    <div class="text">
+        <p>I based myself on the blue Mycena Interrupta (a type of mushroom) to create an environment that is “realistic” just as much as fantasy-like. I wanted to create an environment that felt ethereal using this mushroom. The reason why I chose this specific mushroom is because of a commemoration of a past project of mine, where I had to sculpt a mushroom. Since I was never given back the project, I decided to commemorate it and put it in 3D in a more artistic way.</p>
+    </div>
+</section>
+
+<section class="fade">
+    <p>I modelled the mesh using the Object-Edit Mode and used the Nodes to put textures on those objects, like the gradient texture on my mushrooms and the image textures for the walls (which I downloaded for free on ambientCG). I wanted to put it in a sort of “box”, since I didn’t want to make something too complex and wanted to put the mushroom in a sort of cave. In my opinion, what made the result better was the lightning. I wanted to go with a little bluish color to give a soothing feeling to the environment. I also am a big fan of fantasy, which is why I wanted to customize my mushroom a little bit more to make it look more surrealistic. I learned a lot about modelling, textures, lighting and modifiers during this project, how ambience is important to express a "feeling" with the environment.</p>
+</section>
+
+<section class="gallery fade">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/First_Step_Mushroom.png">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Second_Step_Mushroom.png">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Third_Step_Mushroom.png">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Fourth_Step_Mushroom.png">
+</section>
+
+<section class="flex fade">
+    <div class="text">
+        <p>In terms of improvement, I would say I could have improved the rendering of the textures. It is something I want to learn more about, since when I tried to render an animation, it was taking too much time for my own device. I want to learn how to optimize my project in a way that it will still look smooth and realistic. Especially if I want to create future assets for some video games.</p>
+    </div>
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Fifth_Step_Mushroom.png">
+</section>
+<footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+    </footer>
+
+<script>
+
+/* FADE ON SCROLL */
+
+const faders = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+faders.forEach(el => observer.observe(el));
+
+/* PARTICLES */
+
+function createParticle() {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (6 + Math.random() * 6) + "s";
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 12000);
+}
+setInterval(createParticle, 500);
+
+/* LIQUID CURSOR */
+
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+/* RIPPLE EFFECT */
+
+document.addEventListener('click', e => {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = e.clientX + 'px';
+    ripple.style.top = e.clientY + 'px';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 800);
+});
+
+// For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+
+</script>
+
+</body>
+</html>

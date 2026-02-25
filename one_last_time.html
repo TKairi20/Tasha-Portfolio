@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Last Time</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rock+Salt&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top:120px;
+            background-color: #E5E5E5; /* Soft gray background */
+            color: white;
+            position: relative; /* Make it relative to position icons */
+        }
+
+        /* Add background icons */
+        .background-icon {
+            position: absolute;
+            width: 150px; /* Set icon size */
+            height: auto;
+            z-index: -1; /* Send the icons to the background */
+        }
+
+        /* Icon positions */
+        .icon-1 {
+            top: 20%; /* Position first icon dynamically between main title and video */
+            left: 5%;
+        }
+
+        .icon-2 {
+            top: 60%; /* Position second icon between the first and second box */
+            right: 10%;
+        }
+
+        .icon-3 {
+            top: 5%; /* Adjust to be a bit below the title */
+            right: 0%; /* Position it to the right of the screen */
+        }
+
+        /* Container Styles */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1; /* Ensure content is above the icons */
+        }
+
+        /* Title Styles */
+        .main-title {
+            text-align: center;
+            font-family: 'Bangers', cursive; /* Use Bangers font for the main title */
+            font-size: 3em;
+            margin-bottom: 50px; /* Increased space between title and video */
+            color: #333;
+        }
+
+        .sub-title {
+            text-align: center;
+            font-family: 'Rock Salt', cursive; /* Use Rock Salt font for the sub-title */
+            font-size: 2em;
+            margin-top: 80px; /* Increased space between video and artist statement */
+            color: #333;
+        }
+
+        /* Video Container */
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Box Container */
+        .boxes-container {
+            display: block;
+            margin-top: 80px; /* Increased space between artist statement and boxes */
+            padding-bottom: 200px; /* Added extra padding at the bottom to further space out boxes */
+        }
+
+        /* Box Styles */
+        .box {
+            position: relative;
+            width: 65%; /* Reduced width */
+            padding: 10px;
+            overflow: hidden;
+            background-color: inherit;
+            box-sizing: border-box;
+            margin-left: auto; /* Center the boxes */
+            margin-right: auto; /* Center the boxes */
+            margin-bottom: 120px; /* Large margin for spacing between boxes */
+            border-radius: 8px; /* Slight rounding of the corners */
+            text-align: justify;
+            opacity: 0; /* Initially hidden */
+            transform: translateX(100px); /* Start with the box off-screen */
+            transition: opacity 1s, transform 1s; /* Transition for smooth animation */
+        }
+
+        .box.red {
+            background-color: #D94F4F; /* Dark red */
+            transform: rotate(3deg); /* Slight rotation for dynamic look */
+        }
+
+        .box.black {
+            background-color: #333; /* Black */
+            transform: rotate(-3deg); /* Slight rotation for dynamic look */
+        }
+
+        /* Add Paragraph Styling */
+        .box p {
+            margin: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #eee;
+        }
+
+        /* Animation for Sliding */
+        .slide-in-left {
+            transform: translateX(0); /* Move to normal position */
+            opacity: 1; /* Make the box visible */
+        }
+
+        .slide-in-right {
+            transform: translateX(0); /* Move to normal position */
+            opacity: 1; /* Make the box visible */
+        }
+
+        /* Additional Styling for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .main-title {
+                font-size: 2.5em;
+            }
+
+            .sub-title {
+                font-size: 1.8em;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+
+            .box {
+                width: 70%; /* Adjusted width for tablet */
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 160px; /* Increased space between boxes for tablet */
+            }
+
+            /* Adjust icon positions for tablets */
+            .icon-1 {
+                top: 10%;
+                left: 10%;
+                width: 120px; /* Adjust size for tablet */
+            }
+
+            .icon-2 {
+                top: 55%;
+                right: 15%;
+                width: 120px; /* Adjust size for tablet */
+            }
+
+            .icon-3 {
+                top: 5%;
+                right: 5%;
+                width: 120px; /* Adjust size for tablet */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2em;
+            }
+
+            .sub-title {
+                font-size: 1.6em;
+            }
+
+            .video-container iframe {
+                height: 250px;
+            }
+
+            .box {
+                width: 80%; /* Adjusted width for mobile */
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 180px; /* Increased space between boxes for mobile */
+            }
+
+            /* Adjust icon positions for phones */
+            .icon-1 {
+                top: 5%;
+                left: 5%;
+                width: 100px; /* Adjust size for phone */
+            }
+
+            .icon-2 {
+                top: 45%;
+                right: 10%;
+                width: 100px; /* Adjust size for phone */
+            }
+
+            .icon-3 {
+                top: 3%;
+                right: 5%;
+                width: 100px;
+            }
+        }
+
+        /* PROJECT HEADER */
+
+            .project-header{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            padding:25px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:black;
+            z-index:1000;
+            opacity:0;
+            transform:translateY(-30px);
+            transition:1s ease;
+            }
+
+            .project-header.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-header h1{
+            font-family:'Cinzel',serif;
+            font-size:1.6rem;
+            letter-spacing:3px;
+            cursor:pointer;
+            }
+
+        /* PROJECT FOOTER */
+
+            .project-footer{
+            background:black;
+            padding:40px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:100px;
+            opacity:0;
+            transform:translateY(30px);
+            transition:1s ease;
+            }
+
+            .project-footer.show{
+            opacity:1;
+            transform:translateY(0);
+            }
+
+            .project-footer a{
+            color:#b8c6ff;
+            text-decoration:none;
+            margin-left:20px;
+            }
+    </style>
+</head>
+<body>
+<header class="project-header">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+</header>
+
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/rb_8215.png" alt="Icon 1" class="background-icon icon-1">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/rb_6749.png" alt="Icon 2" class="background-icon icon-2">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/rb_2149266707.png" alt="Icon 3" class="background-icon icon-3">
+
+    <div class="container">
+        <h1 class="main-title">One Last Time</h1>
+
+        <div class="video-container">
+            <iframe src="https://player.vimeo.com/video/898466538" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+
+        <h2 class="sub-title">Artist Statement</h2>
+
+        <div class="boxes-container">
+            <div class="box red" id="box1">
+                <p>This is my first ever animation project that I made in the class Animation Atelier in Fall 2024. I used the program Procreate and Adobe Premiere Pro to make it.</p>
+            </div>
+            <div class="box black" id="box2">
+                <p>Although I am not a big fan of drawing, I had a lot of fun trying out the different textures offered by Procreate (especially the ones for the backgrounds). For this project, I had the idea of doing multiple layers in which I assembled them using Adobe Premiere Pro. What I did is I separated the characters (or moving objects and animals) in one layer and the background in a second layer. That way, I could animate the characters peacefully. It was the first time for me to use Procreate or to animate, so I used my skills in editing videos to help me with the making of this project.</p>
+            </div>
+            <div class="box red" id="box3">
+                <p>The message I wanted to convey is to move on with no regret, in which the color red symbolizes ‘death’ in this context. I did not want to put a lot of colors because, to me, I wanted this short animation to have a grayish atmosphere since the main theme is “death”. I emphasized a lot with the umbrella being red so that the color could “pop off” and I felt like this object was the perfect symbolism I could put in there. Of course, what I would love to improve in this project is the way I conveyed the story. It may seem a bit confusing in certain points, and thus I want to make it even more direct.</p>
+            </div>
+            <div class="box black" id="box4">
+                <p>The reason why I chose this message is because I wanted to express how important it is to be grateful of what we have and to make the most of it because we never know when we will all have to leave. Because the moment we pass away, we won’t have the chance to come back to do everything we wanted to do. I want to show that what you can do presently should not negatively impact your future. To not have any “regrets” when our time comes.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="project-footer">
+    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <div>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
+        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+    </div>
+    </footer>
+
+    <script>
+        // IntersectionObserver to detect when boxes are in the viewport
+        const boxes = document.querySelectorAll('.box');
+
+        // Options for the IntersectionObserver
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        // Callback function for the observer
+        const callback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('red')) {
+                        entry.target.classList.add('slide-in-left');
+                    } else {
+                        entry.target.classList.add('slide-in-right');
+                    }
+                }
+            });
+        };
+
+        // Create the observer instance and observe the boxes
+        const observer = new IntersectionObserver(callback, options);
+        boxes.forEach(box => {
+            observer.observe(box);
+        });
+
+        // For Header
+        window.addEventListener("load",()=>{
+        document.querySelector(".project-header").classList.add("show");
+        document.querySelector(".project-footer").classList.add("show");
+        });
+    </script>
+</body>
+</html>

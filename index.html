@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasha's Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* For the full webpage */
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0b1028;
+color:#e6ecff;
+overflow-x:hidden;
+}
+
+/* Mouse special effect */
+
+.cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle, rgba(180,200,255,0.25) 0%, transparent 70%);
+border-radius:50%;
+pointer-events:none;
+z-index:0;
+transform:translate(-50%,-50%);
+}
+
+/* Bubbles animation */
+
+.bubbles{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+z-index:0;
+overflow:hidden;
+}
+
+.bubbles span{
+position:absolute;
+bottom:-150px;
+background:rgba(255,255,255,0.08);
+border-radius:50%;
+animation:rise linear infinite;
+}
+
+@keyframes rise{
+0%{transform:translateY(0) scale(1);}
+100%{transform:translateY(-120vh) scale(1.4);}
+}
+
+/* Header section */
+
+header{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+transition:0.6s;
+background:transparent;
+}
+
+header.scrolled{
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(10px);
+}
+
+header h1{
+font-family:'Cinzel',serif;
+font-size:1.6rem;
+letter-spacing:3px;
+cursor:pointer;
+}
+
+/* Other section */
+
+section{
+min-height:100vh;
+padding:120px 8%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+opacity:0;
+transform:translateY(120px) scale(0.98);
+transition:1.2s cubic-bezier(0.2,0.8,0.2,1);
+position:relative;
+z-index:1;
+}
+
+section.active{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+/* Hero */
+
+.hero{
+background:url("/Users/tkairi/Downloads/Tasha-Portfolio/images/Mycena_Interrupta.png") center/cover no-repeat;
+position:relative;
+color:white;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom, rgba(0,0,40,0.3), #0b1028);
+top:0;
+left:0;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+}
+
+.hero h2{
+font-family:'Cinzel',serif;
+font-size:3.5rem;
+margin-bottom:20px;
+}
+
+/* Projects section */
+
+.projects{
+position:relative;
+}
+
+.projects h2{
+font-family:'Cinzel',serif;
+font-size:2.5rem;
+margin-bottom:50px;
+}
+
+/* Bubble effects for Projects Section */
+
+.projects::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background-image:radial-gradient(rgba(255,255,255,0.06) 2px, transparent 2px);
+background-size:80px 80px;
+animation:drift 20s linear infinite;
+pointer-events:none;
+z-index:0;
+}
+
+@keyframes drift{
+from{transform:translateY(0);}
+to{transform:translateY(-200px);}
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+position:relative;
+z-index:1;
+}
+
+.project-card{
+background:linear-gradient(145deg,#1b1f40,#121530);
+padding:20px;
+border-radius:35px 10px 35px 10px;
+transition:0.5s;
+cursor:pointer;
+overflow:hidden;
+}
+
+.project-card:hover{
+transform:scale(1.07);
+box-shadow:0 0 35px rgba(173,216,230,0.6);
+}
+
+.project-card img{
+width:100%;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.project-link{
+text-decoration:none;
+color:inherit;
+}
+
+/* About Me Section*/
+
+.about{
+display:flex;
+flex-direction:row;
+align-items:center;
+justify-content:space-between;
+gap:80px;
+}
+
+.about img{
+width:500px;
+height:300px;
+border-radius:25px;
+box-shadow:0 0 40px rgba(173,216,230,0.4);
+flex:0 0 auto;
+}
+
+.about-content{
+flex:1;
+max-width:600px;
+}
+
+.about-content h2{
+font-family:'Cinzel',serif;
+font-size:2.5rem;
+margin-bottom:25px;
+}
+
+/* Fit other devices*/
+
+@media(max-width:900px){
+.about{
+flex-direction:column;
+text-align:center;
+}
+}
+
+/* Footer Section */
+
+footer{
+background:black;
+padding:40px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+footer a{
+color:#b8c6ff;
+text-decoration:none;
+margin-left:20px;
+cursor:pointer;
+}
+
+/* Moon effect */
+
+.moon-transition{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0b1028;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:2000;
+opacity:1;
+transition:opacity 1.2s ease;
+pointer-events:auto;
+}
+
+.moon-transition.hide{
+opacity:0;
+pointer-events:none;
+}
+
+.moon{
+width:120px;
+height:120px;
+background:radial-gradient(circle at 30% 30%, #ffffff, #cbd6ff 60%, #8ea0ff);
+border-radius:50%;
+box-shadow:0 0 60px rgba(200,220,255,0.7);
+animation:moonFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes moonFloat{
+from{transform:translateY(-10px);}
+to{transform:translateY(10px);}
+}
+
+/* Devices */
+
+@media(max-width:1024px){
+.project-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+@media(max-width:900px){
+.about{flex-direction:column;text-align:center;}
+}
+
+@media(max-width:768px){
+.hero h2{font-size:2.2rem;}
+.project-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="moonTransition" class="moon-transition">
+<div class="moon"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<div class="bubbles">
+<span style="left:10%; width:20px; height:20px; animation-duration:18s;"></span>
+<span style="left:30%; width:15px; height:15px; animation-duration:22s;"></span>
+<span style="left:50%; width:25px; height:25px; animation-duration:25s;"></span>
+<span style="left:70%; width:18px; height:18px; animation-duration:19s;"></span>
+<span style="left:85%; width:22px; height:22px; animation-duration:23s;"></span>
+</div>
+
+<header id="header">
+<h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
+</header>
+
+<section class="hero active">
+<div class="hero-content">
+<h2>Tasha's Portfolio</h2>
+<p>A Concordia University student and a passionate of interactive arts</p>
+</div>
+</section>
+
+<section id="projects" class="projects">
+<h2>My Projects</h2>
+<div class="project-grid">
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/tasha_portfolio.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Tasha_Portfolio_Banner.png">
+<h3>Tasha's Portfolio</h3>
+<p>2025 • Website </p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/mycena_interrupta.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Mycena_Interrupta.png">
+<h3>Mycena Interrupta</h3>
+<p>2026 • 3D Modelling </p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/an_heroine_for_me.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/An-Heroine-For-Me-Panel.jpg">
+<h3>An Heroïne For Me</h3>
+<p>2024 • Typography </p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/the_theory_of_numbers.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/The-Theory-of-Numbers-Panel.png">
+<h3>The Theory of Numbers</h3>
+<p>2023 • Video Essay</p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/one_last_time.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/2dAnimationThumbnail.png">
+<h3>One Last Time</h3>
+<p>2023 • 2D animation</p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/the_bad_curse.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/The_Bad_Curse_Panel.jpeg">
+<h3>The Bad Curse</h3>
+<p>2023 • Short Movie</p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/crying_woman.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Crying_Woman.jpg">
+<h3>Crying Woman</h3>
+<p>2022 • Digital Collage</p>
+</div>
+</a>
+
+<a href="/Users/tkairi/Downloads/Tasha-Portfolio/surrealism_photography.html" class="project-link">
+<div class="project-card">
+<img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Surrealism_Photography.jpg">
+<h3>Surrealism Photography</h3>
+<p>2022 • Digital Drawing</p>
+</div>
+</a>
+
+</div>
+</section>
+
+<section id="about" class="about">
+    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/my_profile_picture.jpg" alt="Profile Picture">
+    <div class="about-content">
+        <h2>About Me</h2>
+        <p>My name is Tasha Pakita Kanzi, a current student in the Certificate of Arts and Science at Concordia University, previous Cinema & Communications student at Dawson College. I have a lot of passion for creative projects using technology.</p>
+        <br>
+        <p>I am interested in exploring digital mediums like interactive arts, web designing and video games. My goal is to become a creative developer who can design original platforms and interactive projects that mixes both art and technology.</p>
+    </div>
+</section>
+
+<footer>
+<h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
+<div>
+<a onclick="scrollToSection('projects')">My Projects</a>
+<a onclick="scrollToSection('about')">About Me</a>
+</div>
+</footer>
+
+<script>
+
+/* Header Darkens */
+
+window.addEventListener("scroll",function(){
+let header=document.getElementById("header");
+if(window.scrollY>100){
+header.classList.add("scrolled");
+}else{
+header.classList.remove("scrolled");
+}
+});
+
+/* Section Reappears */
+
+const sections=document.querySelectorAll("section");
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}else{
+entry.target.classList.remove("active");
+}
+});
+},{threshold:0.4});
+
+sections.forEach(section=>observer.observe(section));
+
+/* Smooth Footer Navigation */
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* Curson glow */
+
+const glow=document.getElementById("cursorGlow");
+document.addEventListener("mousemove",(e)=>{
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+});
+
+/* Moon Introduction */
+
+window.addEventListener("load",()=>{
+setTimeout(()=>{
+document.getElementById("moonTransition").classList.add("hide");
+},800);
+});
+
+/* Moon exit */
+
+document.querySelectorAll(".project-card").forEach(card=>{
+card.addEventListener("click",function(){
+let overlay=document.getElementById("moonTransition");
+overlay.classList.remove("hide");
+});
+});
+
+</script>
+
+</body>
+</html>
