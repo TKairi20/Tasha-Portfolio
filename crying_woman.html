@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crying Woman</title>
   <style>
-    /* General Styles */
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Playfair Display', serif; /* Stylish font */
+      font-family: 'Playfair Display', serif;
       background-color: black;
       color: white;
       line-height: 1.6;
@@ -52,21 +51,20 @@
 
     .images-row img {
       width: 100%;
-      max-width: 550px; /* Makes the images large and visible */
+      max-width: 550px; 
       height: auto;
       border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7); /* Adds a nice shadow */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7); 
     }
 
     .divider {
       height: 10px;
       margin: 40px auto;
       max-width: 80%;
-      background: linear-gradient(to right, #f06, #000, #f06); /* Stylish line */
+      background: linear-gradient(to right, #f06, #000, #f06); 
       border-radius: 5px;
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       h1 {
         font-size: 2.5em;
@@ -81,7 +79,7 @@
       }
 
       .images-row img {
-        max-width: 100%; /* Adjusts image size for smaller devices */
+        max-width: 100%; 
       }
     }
 
@@ -99,11 +97,10 @@
       }
 
       .images-row {
-        flex-direction: column; /* Stacks images vertically on small screens */
+        flex-direction: column; 
         gap: 10px;
       }
     }
-    /* PROJECT HEADER */
 
             .project-header{
             position:fixed;
@@ -133,8 +130,6 @@
             cursor:pointer;
             }
 
-        /* PROJECT FOOTER */
-
             .project-footer{
             background:black;
             padding:40px 8%;
@@ -162,22 +157,18 @@
 </head>
 <body>
   <header class="project-header">
-    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
   </header>
   <div class="container">
-    <!-- Title -->
     <h1>Crying Woman</h1>
 
-    <!-- Two Images Side by Side -->
     <div class="images-row">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Crying_Woman.jpg" alt="Image 1">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Crying_Woman_White.jpg" alt="Image 2">
+      <img src="images/Crying_Woman.jpg" alt="Image 1">
+      <img src="images/Crying_Woman_White.jpg" alt="Image 2">
     </div>
 
-    <!-- Stylish Divider Line -->
     <div class="divider"></div>
 
-    <!-- Artist Statement Section -->
     <h2>Artist Statement</h2>
     <p>
       This is a project I have made in my class Exploring Creativity.
@@ -189,17 +180,15 @@
       For the making of this project, I decided to download digital magazines and then combine them to make a human form. I also wanted to explore with the colors, so I separated sections of the portraits (hair, shirt, tears and face) and put a specific color in each section, making it a bit more alive in a way (as shown just below this paragraph).
     </p>
 
-    <!-- Four Images Section -->
     <div class="images-row">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/face-2_orig.jpg" alt="Image 3">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/face-4.jpg" alt="Image 4">
+      <img src="images/face-2_orig.jpg" alt="Image 3">
+      <img src="images/face-4.jpg" alt="Image 4">
     </div>
     <div class="images-row">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/face-1_orig.jpg" alt="Image 5">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/face-3_orig.jpg" alt="Image 6">
+      <img src="images/face-1_orig.jpg" alt="Image 5">
+      <img src="images/face-3_orig.jpg" alt="Image 6">
     </div>
 
-    <!-- Final Paragraph -->
     <p>
       I did not have a specific theme for this project when I was making it. Instead, I preferred letting the viewer decide what is the actual meaning of the art. I used multiple colors that are quite distinct from themselves because in my opinion, art can have different types of definition for each person. The green or red color could make the digital art seem hopeful whereas the blue could make it seem a bit sadder. All depends on the viewer’s perspective. There is also no specific name I have given to this art piece, so I decided to go with a basic one, which is “Crying Woman”.
     </p>
@@ -211,13 +200,12 @@
   <footer class="project-footer">
     <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
     <div>
-        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
-        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+        <a href="index.html#projects">My Projects</a>
+        <a href="index.html#about">About Me</a>
     </div>
   </footer>
 </body>
 <script>
-  // For Header
         window.addEventListener("load",()=>{
         document.querySelector(".project-header").classList.add("show");
         document.querySelector(".project-footer").classList.add("show");
