@@ -9,8 +9,6 @@
 
 <style>
 
-/* For the full webpage */
-
 *{margin:0;padding:0;box-sizing:border-box;}
 
 html{scroll-behavior:smooth;}
@@ -22,8 +20,6 @@ color:#e6ecff;
 overflow-x:hidden;
 }
 
-/* Mouse special effect */
-
 .cursor-glow{
 position:fixed;
 width:300px;
@@ -34,8 +30,6 @@ pointer-events:none;
 z-index:0;
 transform:translate(-50%,-50%);
 }
-
-/* Bubbles animation */
 
 .bubbles{
 position:fixed;
@@ -60,8 +54,6 @@ animation:rise linear infinite;
 0%{transform:translateY(0) scale(1);}
 100%{transform:translateY(-120vh) scale(1.4);}
 }
-
-/* Header section */
 
 header{
 position:fixed;
@@ -89,8 +81,6 @@ letter-spacing:3px;
 cursor:pointer;
 }
 
-/* Other section */
-
 section{
 min-height:100vh;
 padding:120px 8%;
@@ -108,8 +98,6 @@ section.active{
 opacity:1;
 transform:translateY(0) scale(1);
 }
-
-/* Hero */
 
 .hero{
 background:url("images/Mycena_Interrupta.png") center/cover no-repeat;
@@ -139,8 +127,6 @@ font-size:3.5rem;
 margin-bottom:20px;
 }
 
-/* Projects section */
-
 .projects{
 position:relative;
 }
@@ -150,8 +136,6 @@ font-family:'Cinzel',serif;
 font-size:2.5rem;
 margin-bottom:50px;
 }
-
-/* Bubble effects for Projects Section */
 
 .projects::before{
 content:"";
@@ -203,8 +187,6 @@ text-decoration:none;
 color:inherit;
 }
 
-/* About Me Section*/
-
 .about{
 display:flex;
 flex-direction:row;
@@ -232,16 +214,12 @@ font-size:2.5rem;
 margin-bottom:25px;
 }
 
-/* Fit other devices*/
-
 @media(max-width:900px){
 .about{
 flex-direction:column;
 text-align:center;
 }
 }
-
-/* Footer Section */
 
 footer{
 background:black;
@@ -257,8 +235,6 @@ text-decoration:none;
 margin-left:20px;
 cursor:pointer;
 }
-
-/* Moon effect */
 
 .moon-transition{
 position:fixed;
@@ -294,8 +270,6 @@ animation:moonFloat 3s ease-in-out infinite alternate;
 from{transform:translateY(-10px);}
 to{transform:translateY(10px);}
 }
-
-/* Devices */
 
 @media(max-width:1024px){
 .project-grid{grid-template-columns:repeat(3,1fr);}
@@ -430,9 +404,6 @@ to{transform:translateY(10px);}
 </footer>
 
 <script>
-
-/* Header Darkens */
-
 window.addEventListener("scroll",function(){
 let header=document.getElementById("header");
 if(window.scrollY>100){
@@ -441,8 +412,6 @@ header.classList.add("scrolled");
 header.classList.remove("scrolled");
 }
 });
-
-/* Section Reappears */
 
 const sections=document.querySelectorAll("section");
 
@@ -458,13 +427,9 @@ entry.target.classList.remove("active");
 
 sections.forEach(section=>observer.observe(section));
 
-/* Smooth Footer Navigation */
-
 function scrollToSection(id){
 document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
-
-/* Curson glow */
 
 const glow=document.getElementById("cursorGlow");
 document.addEventListener("mousemove",(e)=>{
@@ -472,15 +437,11 @@ glow.style.left=e.clientX+"px";
 glow.style.top=e.clientY+"px";
 });
 
-/* Moon Introduction */
-
 window.addEventListener("load",()=>{
 setTimeout(()=>{
 document.getElementById("moonTransition").classList.add("hide");
 },800);
 });
-
-/* Moon exit */
 
 document.querySelectorAll(".project-card").forEach(card=>{
 card.addEventListener("click",function(){
