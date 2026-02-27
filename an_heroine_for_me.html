@@ -26,7 +26,7 @@
     background: black;
     z-index: 2;
     transition: transform 1s ease-out;
-    cursor: pointer; /* Pointer to indicate clickable curtains */
+    cursor: pointer;
   }
 
   .curtain.right {
@@ -46,24 +46,24 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centering the text */
-    font-size: 3rem; /* Larger font size */
-    font-family: 'Pacifico', cursive; /* New font */
+    transform: translate(-50%, -50%); 
+    font-size: 3rem; 
+    font-family: 'Pacifico', cursive; 
     color: white;
-    animation: float 2s infinite alternate ease-in-out; /* Floating effect */
+    animation: float 2s infinite alternate ease-in-out; 
     z-index: 3;
   }
 
-  /* Floating animation */
+
   @keyframes float {
     0% {
       transform: translate(-50%, -50%) translateY(0);
     }
     50% {
-      transform: translate(-50%, -50%) translateY(-10px); /* Float up */
+      transform: translate(-50%, -50%) translateY(-10px); 
     }
     100% {
-      transform: translate(-50%, -50%) translateY(0); /* Return to original position */
+      transform: translate(-50%, -50%) translateY(0); 
     }
   }
 
@@ -83,19 +83,19 @@
 
   .content {
     padding: 50px;
-    margin-top: 40vh; /* Reduced gap between project and content */
+    margin-top: 40vh; 
   }
 
   .project-title {
     font-family: 'Great Vibes', cursive;
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 20px; /* Reduced spacing below title */
+    margin-bottom: 20px; 
   }
 
   .artist-statement {
     font-size: 2rem;
-    margin-top: 10px; /* Reduced top margin */
+    margin-top: 10px; 
     margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
@@ -108,60 +108,56 @@
     margin-bottom: 20px;
   }
 
-  /* Rectangles below the content (Horizontally Aligned) */
+
   .rectangles {
     display: flex;
-    justify-content: space-between; /* Spacing out the items */
+    justify-content: space-between; 
     margin-top: 50px;
     padding: 0 20px;
   }
 
   .rectangle {
-    width: 32%; /* Each rectangle will take up 32% of the width, so they fit in the row */
-    max-width: 300px; /* Max width for each rectangle */
+    width: 32%; 
+    max-width: 300px; 
     margin-bottom: 20px;
-    /* Removed box-shadow */
-    overflow: hidden; /* Prevents images or video from overflowing */
+    overflow: hidden;
   }
 
   .rectangle img, .rectangle video {
-    width: 100%; /* Makes the content fit the rectangle */
+    width: 100%; 
     height: auto;
   }
 
-  /* Words List Container */
   .word-list {
     display: flex;
-    flex-wrap: wrap; /* Allow words to wrap onto the next line */
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 40px;
     padding: 0 20px;
   }
 
   .word-item {
-    width: 30%; /* 3 words per line (3 * 30% = 90%, leaving 10% for spacing) */
+    width: 30%; 
     margin: 5px;
     text-align: center;
-    font-size: 1.2rem; /* Normal text size */
+    font-size: 1.2rem; 
     color: white;
-    font-family: Arial, sans-serif; /* Normal font */
-    text-transform: none; /* No uppercase */
+    font-family: Arial, sans-serif; 
+    text-transform: none; 
   }
 
-  /* Title for List of Words */
   .word-list-title {
     font-size: 2rem;
     text-align: center;
     margin-top: 40px;
-    margin-bottom: 30px; /* Added margin below the title */
-    font-family: Arial, sans-serif; /* Normal font */
+    margin-bottom: 30px; 
+    font-family: Arial, sans-serif; 
     color: white;
-    text-transform: none; /* Normal case */
+    text-transform: none;
   }
 
-  /* Added bottom space */
   .bottom-space {
-    height: 50px; /* Adds space below the word list */
+    height: 50px; 
   }
 
  @media (max-width: 768px) {
@@ -203,7 +199,6 @@
       font-size: 1.5rem;
     }
   }
-  /* PROJECT HEADER */
 
             .project-header{
             position:fixed;
@@ -233,8 +228,6 @@
             cursor:pointer;
             }
 
-        /* PROJECT FOOTER */
-
             .project-footer{
             background:black;
             padding:40px 8%;
@@ -262,29 +255,21 @@
 </head>
 <body>
   <header class="project-header">
-    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
   </header>
-  <!-- Click Text -->
   <div class="click-text">Click on it</div>
-
-  <!-- Curtains -->
+  
   <div class="curtain left"></div>
   <div class="curtain right"></div>
 
-  <!-- Project Image Section -->
   <div class="image-container">
-    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/An_Heroine_For_Me.jpg" alt="Project Image">
+    <img src="images/An_Heroine_For_Me.jpg" alt="Project Image">
   </div>
 
-  <!-- Additional Content -->
   <div class="content">
-    <!-- Project Title -->
     <div class="project-title">An Heroïne For Me</div>
 
-    <!-- Artist Statement -->
     <div class="artist-statement">Artist Statement</div>
-
-    <!-- Paragraphs -->
     <p>This is a typography collage of Wonder Woman that I made using Adobe Photoshop. I wanted to make a collage based on the main theme of "Feminist Film Theory" and the reason I chose Wonder Woman is because to me, it’s my first ever strong female character I have seen in movies. She was also my favorite hero at a young age, which is why she became the first option when I was trying to choose what female character to me would represent this project.</p>
     <p>It’s my first ever typography collage and I actually had a lot of fun doing this portrait. Not only is it one of my favorite projects I have done so far personally, but also it was a collaborative project. Collaborative in the way that every word I put in this collage were words that my friends expressed when I asked them “what feminism film theory represents to you”. Some expressed definitions while others expressed their opinions. With all those words combined, it gave a full art piece as a result.</p>
     <p>In a way, I was inspired by my Interactive Art class, where instead of it just being an art piece, the viewer gets to interact with it. So this piece is a result of all the perspectives and different points of views that different people had on the subject.</p>
@@ -292,33 +277,24 @@
     <p>To me, Cinema is a sort of “virtual” reality where you get to become a part of that new reality. So of course I value the importance of representation, whether it’s gender or cultures. Which is what gave the result to my collage and is also the reason why this project is meaningful to me.</p>
   </div>
 
-  <!-- Rectangles for Images and Video -->
   <div class="rectangles">
-    <!-- First Rectangle (Image) -->
     <div class="rectangle">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Progress-1-Typography.png" alt="Image 1">
+      <img src="images/Progress-1-Typography.png" alt="Image 1">
     </div>
-
-    <!-- Second Rectangle (Image) -->
     <div class="rectangle">
-      <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/Progress-2-Typography.png" alt="Image 2">
+      <img src="images/Progress-2-Typography.png" alt="Image 2">
     </div>
-
-    <!-- Third Rectangle (Video) -->
     <div class="rectangle">
       <video autoplay loop muted>
-        <source src="/Users/tkairi/Downloads/Tasha-Portfolio/images/An-Heroine-For-Me-Timelapse.mp4" type="video/mp4">
+        <source src="images/An-Heroine-For-Me-Timelapse.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
   </div>
 
-  <!-- Title for List of Words -->
   <div class="word-list-title">List of Words</div>
 
-  <!-- Words List -->
   <div class="word-list">
-    <!-- Add your words here in .word-item divs -->
     <div class="word-item">Power</div>
     <div class="word-item">Solidarity</div>
     <div class="word-item">Girl Power</div>
@@ -458,27 +434,24 @@
     <div class="word-item">Female Directors</div>
   </div>
 
-  <!-- Space Below the List -->
   <div class="bottom-space"></div>
   <footer class="project-footer">
-    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
     <div>
-        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
-        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+        <a href="index.html#projects">My Projects</a>
+        <a href="index.html#about">About Me</a>
     </div>
   </footer>
 
   <script>
-    // Add click event listener to both curtains
     const curtains = document.querySelectorAll(".curtain");
     curtains.forEach(curtain => {
       curtain.addEventListener("click", () => {
         curtains.forEach(c => c.classList.add("reveal"));
-        // Hide click text after the animation starts
         document.querySelector(".click-text").style.display = "none";
       });
     });
-    // For Header
+
         window.addEventListener("load",()=>{
         document.querySelector(".project-header").classList.add("show");
         document.querySelector(".project-footer").classList.add("show");
