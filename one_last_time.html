@@ -4,114 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Last Time</title>
-    <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rock+Salt&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             padding-top:120px;
-            background-color: #E5E5E5; /* Soft gray background */
+            background-color: #E5E5E5;
             color: white;
-            position: relative; /* Make it relative to position icons */
+            position: relative; 
         }
 
-        /* Add background icons */
         .background-icon {
             position: absolute;
-            width: 150px; /* Set icon size */
+            width: 150px; 
             height: auto;
-            z-index: -1; /* Send the icons to the background */
+            z-index: -1; 
         }
-
-        /* Icon positions */
+        
         .icon-1 {
-            top: 20%; /* Position first icon dynamically between main title and video */
+            top: 20%; 
             left: 5%;
         }
 
         .icon-2 {
-            top: 60%; /* Position second icon between the first and second box */
+            top: 60%; 
             right: 10%;
         }
 
         .icon-3 {
-            top: 5%; /* Adjust to be a bit below the title */
-            right: 0%; /* Position it to the right of the screen */
+            top: 5%; 
+            right: 0%; 
         }
 
-        /* Container Styles */
         .container {
             width: 80%;
             margin: 0 auto;
             padding: 20px;
             position: relative;
-            z-index: 1; /* Ensure content is above the icons */
+            z-index: 1; 
         }
 
-        /* Title Styles */
         .main-title {
             text-align: center;
-            font-family: 'Bangers', cursive; /* Use Bangers font for the main title */
+            font-family: 'Bangers', cursive; 
             font-size: 3em;
-            margin-bottom: 50px; /* Increased space between title and video */
+            margin-bottom: 50px; 
             color: #333;
         }
 
         .sub-title {
             text-align: center;
-            font-family: 'Rock Salt', cursive; /* Use Rock Salt font for the sub-title */
+            font-family: 'Rock Salt', cursive; 
             font-size: 2em;
-            margin-top: 80px; /* Increased space between video and artist statement */
+            margin-top: 80px;
             color: #333;
         }
 
-        /* Video Container */
         .video-container iframe {
             width: 100%;
             height: 500px;
             border: none;
         }
 
-        /* Box Container */
         .boxes-container {
             display: block;
-            margin-top: 80px; /* Increased space between artist statement and boxes */
-            padding-bottom: 200px; /* Added extra padding at the bottom to further space out boxes */
+            margin-top: 80px; 
+            padding-bottom: 200px;
         }
 
-        /* Box Styles */
         .box {
             position: relative;
-            width: 65%; /* Reduced width */
+            width: 65%; 
             padding: 10px;
             overflow: hidden;
             background-color: inherit;
             box-sizing: border-box;
-            margin-left: auto; /* Center the boxes */
-            margin-right: auto; /* Center the boxes */
-            margin-bottom: 120px; /* Large margin for spacing between boxes */
-            border-radius: 8px; /* Slight rounding of the corners */
+            margin-left: auto; 
+            margin-right: auto; 
+            margin-bottom: 120px; 
+            border-radius: 8px; 
             text-align: justify;
-            opacity: 0; /* Initially hidden */
-            transform: translateX(100px); /* Start with the box off-screen */
-            transition: opacity 1s, transform 1s; /* Transition for smooth animation */
+            opacity: 0; 
+            transform: translateX(100px); 
+            transition: opacity 1s, transform 1s; 
         }
 
         .box.red {
-            background-color: #D94F4F; /* Dark red */
-            transform: rotate(3deg); /* Slight rotation for dynamic look */
+            background-color: #D94F4F; 
+            transform: rotate(3deg); 
         }
 
         .box.black {
-            background-color: #333; /* Black */
-            transform: rotate(-3deg); /* Slight rotation for dynamic look */
+            background-color: #333; 
+            transform: rotate(-3deg); 
         }
-
-        /* Add Paragraph Styling */
+        
         .box p {
             margin: 0;
             font-size: 1.1em;
@@ -119,18 +109,16 @@
             color: #eee;
         }
 
-        /* Animation for Sliding */
         .slide-in-left {
-            transform: translateX(0); /* Move to normal position */
-            opacity: 1; /* Make the box visible */
+            transform: translateX(0); 
+            opacity: 1; 
         }
 
         .slide-in-right {
-            transform: translateX(0); /* Move to normal position */
-            opacity: 1; /* Make the box visible */
+            transform: translateX(0); 
+            opacity: 1; 
         }
 
-        /* Additional Styling for Responsiveness */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -149,29 +137,28 @@
             }
 
             .box {
-                width: 70%; /* Adjusted width for tablet */
+                width: 70%; 
                 margin-left: auto;
                 margin-right: auto;
-                margin-bottom: 160px; /* Increased space between boxes for tablet */
+                margin-bottom: 160px; 
             }
 
-            /* Adjust icon positions for tablets */
             .icon-1 {
                 top: 10%;
                 left: 10%;
-                width: 120px; /* Adjust size for tablet */
+                width: 120px; 
             }
 
             .icon-2 {
                 top: 55%;
                 right: 15%;
-                width: 120px; /* Adjust size for tablet */
+                width: 120px; 
             }
 
             .icon-3 {
                 top: 5%;
                 right: 5%;
-                width: 120px; /* Adjust size for tablet */
+                width: 120px; 
             }
         }
 
@@ -189,23 +176,22 @@
             }
 
             .box {
-                width: 80%; /* Adjusted width for mobile */
+                width: 80%; 
                 margin-left: auto;
                 margin-right: auto;
-                margin-bottom: 180px; /* Increased space between boxes for mobile */
+                margin-bottom: 180px; 
             }
 
-            /* Adjust icon positions for phones */
             .icon-1 {
                 top: 5%;
                 left: 5%;
-                width: 100px; /* Adjust size for phone */
+                width: 100px; 
             }
 
             .icon-2 {
                 top: 45%;
                 right: 10%;
-                width: 100px; /* Adjust size for phone */
+                width: 100px; 
             }
 
             .icon-3 {
@@ -214,8 +200,6 @@
                 width: 100px;
             }
         }
-
-        /* PROJECT HEADER */
 
             .project-header{
             position:fixed;
@@ -245,8 +229,6 @@
             cursor:pointer;
             }
 
-        /* PROJECT FOOTER */
-
             .project-footer{
             background:black;
             padding:40px 8%;
@@ -273,12 +255,12 @@
 </head>
 <body>
 <header class="project-header">
-    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
 </header>
 
-    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/rb_8215.png" alt="Icon 1" class="background-icon icon-1">
-    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/rb_6749.png" alt="Icon 2" class="background-icon icon-2">
-    <img src="/Users/tkairi/Downloads/Tasha-Portfolio/images/rb_2149266707.png" alt="Icon 3" class="background-icon icon-3">
+    <img src="images/rb_8215.png" alt="Icon 1" class="background-icon icon-1">
+    <img src="images/rb_6749.png" alt="Icon 2" class="background-icon icon-2">
+    <img src="images/rb_2149266707.png" alt="Icon 3" class="background-icon icon-3">
 
     <div class="container">
         <h1 class="main-title">One Last Time</h1>
@@ -306,25 +288,22 @@
     </div>
 
     <footer class="project-footer">
-    <h1 onclick="window.location.href='/Users/tkairi/Downloads/Tasha-Portfolio/index.html'">Tasha's Portfolio</h1>
+    <h1 onclick="window.location.href='index.html'">Tasha's Portfolio</h1>
     <div>
-        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#projects">My Projects</a>
-        <a href="/Users/tkairi/Downloads/Tasha-Portfolio/index.html#about">About Me</a>
+        <a href="index.html#projects">My Projects</a>
+        <a href="index.html#about">About Me</a>
     </div>
     </footer>
 
     <script>
-        // IntersectionObserver to detect when boxes are in the viewport
         const boxes = document.querySelectorAll('.box');
 
-        // Options for the IntersectionObserver
         const options = {
             root: null,
             rootMargin: '0px',
             threshold: 0.5
         };
 
-        // Callback function for the observer
         const callback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -337,13 +316,11 @@
             });
         };
 
-        // Create the observer instance and observe the boxes
         const observer = new IntersectionObserver(callback, options);
         boxes.forEach(box => {
             observer.observe(box);
         });
 
-        // For Header
         window.addEventListener("load",()=>{
         document.querySelector(".project-header").classList.add("show");
         document.querySelector(".project-footer").classList.add("show");
